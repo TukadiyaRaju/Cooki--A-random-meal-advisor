@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Cooki</title>
+  </head>
+  <body>
+    <nav id="navBar">
+      <div id="logo"><img src="Assets/logo.svg" alt="" /></div>
+      <div id="navLinks">
+        <a href="#">Home</a><a href="#" id="recipe">Recipe</a
+        ><a href="#">Contact</a>
+        <div id="loginBtns">
+          <a href="#" id="login">Login</a> <span class="divider"></span>
+          <a href="#" id="signup">Signup</a>
+        </div>
+      </div>
+      <div id="hemberg">
+        <div class="hb-line"></div>
+        <div class="hb-line"></div>
+        <div class="hb-line"></div>
+      </div>
+    </nav>
+    <div class="main">
+      <div id="desktopContent">
+        <h1 id="heading">Get meal suggestions in one click</h1>
+        <h4 id="description">
+          Search for the category you want and get delicious food suggestions.
+        </h4>
+        <button id="cta">Use App Now</button>
+      </div>
+      <div id="phone">
+        <div id="hero-sec-container">
+          <div id="hero-sec">
+            <div id="heroSecContainer">
+              <div id="content">
+                <h1 id="hero-title">Welcome to Cooki</h1>
+                <h4 id="hero-subtitle">
+                  Let us suggest what should be your meal today!
+                </h4>
+              </div>
+              <!-- <div id="searchBox"> -->
+              <form action="" id="searchBox">
+                <div id="searchBar">
+                  <input
+                    list="dataList"
+                    id="searchInput"
+                    type="search"
+                    placeholder="Vegan"
+                  />
+                  <datalist id="dataList"></datalist>
+                </div>
+                <div id="searchBtn">
+                  <button id="search">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </form>
+              <!-- </div> -->
+            </div>
+            <div id="randomMeal">
+              <div class="card" id="rmCard">
+                <div class="cardImg" id="rmImg"></div>
+                <h3 class="cardTitle" id="rmTitle">Random Meal Title</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="searchResults">
+          <h3>Search Results</h3>
+          <div id="srCards">
+            <div class="card srCard">
+              <img class="cardImg" src="" alt="Search Result Image" />
+              <h3 class="cardTitle">Search Result Title</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="ingredients">
+      <!-- <div id="ingContent"> -->
+      <div class="card" class="ingCard">
+        <!-- <img class="cardImg" src="" alt="Ingredients Image" id="ingImg" /> -->
+        <div class="cardImg" id="ingImg"></div>
+        <h3 class="cardTitle" id="ingTitle">Ingredients Title</h3>
+      </div>
+      <div id="ingContent">
+        <h3>Ingredients</h3>
+        <div id="ingList">
+          <p class="ingItem">Ingredient 1</p>
+          <p class="ingItem">Ingredient 2</p>
+          <p class="ingItem">Ingredient 3</p>
+          <p class="ingItem">Ingredient 4</p>
+          <p class="ingItem">Ingredient 5</p>
+          <p class="ingItem">Ingredient 6</p>
+          <p class="ingItem">Ingredient 7</p>
+          <p class="ingItem">Ingredient 8</p>
+          <p class="ingItem">Ingredient 9</p>
+          <p class="ingItem">Ingredient 10</p>
+          <p class="ingItem">Ingredient 11</p>
+          <p class="ingItem">Ingredient 12</p>
+          <p class="ingItem">Ingredient 13</p>
+          <p class="ingItem">Ingredient 14</p>
+          <p class="ingItem">Ingredient 15</p>
+          <p class="ingItem">Ingredient 16</p>
+          <p class="ingItem">Ingredient 17</p>
+          <p class="ingItem">Ingredient 18</p>
+          <p class="ingItem">Ingredient 19</p>
+          <p class="ingItem">Ingredient 20</p>
+        </div>
+      </div>
+      <div id="ingBtn">
+        <button id="go-back">Go Back</button>
+      </div>
+    </div>
+    <footer>
+      <div id="footerTxt">
+        Made with <span class="love">❤️</span> by Raju Tukadiya
+      </div>
+    </footer>
+  </body>
+
+  <script>
+    document.getElementById("hemberg").onclick = () => {
+      document.getElementById("navBar").classList.toggle("open");
+      document.getElementById("navLinks").classList.toggle("active");
+      document.getElementById("hemberg").classList.toggle("open");
+    };
+  </script>
+</html>
