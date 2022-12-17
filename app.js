@@ -18,10 +18,6 @@ let srItemCard;
 
 let data;
 
-cta.onclick = () => {
-  phone.classList.add("active");
-};
-
 window.onload = () => {
   axios
     .get("https://www.themealdb.com/api/json/v1/1/list.php?c=list")
@@ -31,7 +27,7 @@ window.onload = () => {
         dataList.innerHTML += `<option value="${resp.data.meals[i].strCategory}"></option>`;
       }
 
-      // console.clear();
+      console.clear();
     })
     .catch((err) => {
       console.log("An error occured in Data List: " + err);
@@ -41,15 +37,15 @@ window.onload = () => {
     .get("https://www.themealdb.com/api/json/v1/1/random.php")
     .then((resp) => {
       data = resp.data.meals[0];
-      //   console.log(data);
+      // console.log(data);
       rmImg.style.backgroundImage = `url(${data.strMealThumb})`;
       rmTitle.innerText = data.strMeal.split(" ").slice(0, 2).join(" ");
     })
     .catch((err) => console.log("Error occured in random item: " + err));
-  // console.clear();
+  console.clear();
 };
 
-rmCard.onclick = () => {
+function showIngredients(data) {
   ingredients.classList.add("ingActive");
   ingImg.style.backgroundImage = `url(${data.strMealThumb})`;
   ingTitle.innerHTML = data.strMeal;
@@ -63,12 +59,12 @@ rmCard.onclick = () => {
     ingList.innerHTML += `<p>${data["strIngredient" + i]}</p>`;
     i++;
   }
-  // console.clear();
-};
+}
 
-search.addEventListener("click", function (event) {
-  event.preventDefault();
-});
+rmCard.onclick = () => {
+  showIngredients(data);
+  console.clear();
+};
 
 search.onclick = () => {
   document.getElementById("searchResults").classList.add("active");
@@ -106,29 +102,32 @@ search.onclick = () => {
             )
             .then((resp) => {
               let data = resp.data.meals[0];
+              showIngredients(data);
               // console.log(data);
-              ingImg.style.backgroundImage = `url(${data.strMealThumb})`;
-              ingTitle.innerHTML = data.strMeal;
-              ingList.innerHTML = "";
-              let i = 1;
-              while (
-                data["strIngredient" + i] != "" &&
-                data["strIngredient" + i] != null &&
-                i <= 20
-              ) {
-                ingList.innerHTML += `<p>${data["strIngredient" + i]}</p>`;
-                i++;
-              }
             });
         };
       }
-      // console.clear();
+      console.clear();
     })
     .catch((err) => {
       console.log("An error occured in search results: " + err);
       srCards.innerHTML = "";
       srCards.innerHTML += "Please enter a valid Category name";
     });
+};
+
+cta.onclick = () => {
+  phone.classList.add("active");
+};
+
+search.addEventListener("click", function (event) {
+  event.preventDefault();
+});
+
+document.getElementById("hemberg").onclick = () => {
+  document.getElementById("navBar").classList.toggle("open");
+  document.getElementById("navLinks").classList.toggle("active");
+  document.getElementById("hemberg").classList.toggle("open");
 };
 
 goBack.onclick = () => {
