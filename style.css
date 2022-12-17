@@ -57,20 +57,8 @@ a {
   text-decoration: none;
 }
 
-/* #recipe::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  width: 100%;
-  left: 0;
-  height: 5px;
-  border-radius: 2px;
-  background: linear-gradient(111.3deg, #9c27b0 9.6%, #00bcd4 93.6%);
-} */
-
 #recipe {
   border-bottom: 5px solid #e97661;
-  /* border-color: linear-gradient(90deg, #e97661 0%, #ea9c40 98.81%); */
 }
 
 #loginBtns {
@@ -106,7 +94,6 @@ a {
 
 #hemberg {
   grid-area: hemberg;
-  /* display: flex; */
   display: none;
   flex-direction: column;
   align-items: flex-start;
@@ -271,11 +258,6 @@ a {
   fill: white;
 }
 
-/* #randomMeal {
-  display: flex;
-  justify-content: center;
-} */
-
 .card {
   margin: auto;
   width: 295px;
@@ -354,8 +336,7 @@ footer {
   transform: translate(-50%, -50%);
 
   width: 295px;
-  height: 488px;
-  overflow-y: scroll;
+  overflow-y: hidden;
 
   background: #eeeeee;
   border-radius: 10px;
@@ -373,6 +354,9 @@ footer {
   align-items: flex-start;
   padding: 20px 30px;
   gap: 11px;
+
+  overflow-y: auto;
+  height: 250px;
 }
 
 #ingContent h3 {
@@ -387,8 +371,6 @@ footer {
 }
 
 #go-back {
-  /* position: fixed;
-  bottom: 0; */
   outline: none;
   font-weight: 700;
   font-size: 18px;
@@ -433,7 +415,6 @@ footer {
   }
 
   #navLinks {
-    /* display: none; */
     visibility: hidden;
     opacity: 0;
     flex-direction: column;
@@ -445,7 +426,6 @@ footer {
   }
 
   #navLinks.active {
-    /* display: flex; */
     visibility: visible;
     opacity: 1;
   }

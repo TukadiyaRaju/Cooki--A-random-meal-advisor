@@ -42,7 +42,6 @@ window.onload = () => {
     .then((resp) => {
       data = resp.data.meals[0];
       //   console.log(data);
-      // rmImg.src = data.strMealThumb;
       rmImg.style.backgroundImage = `url(${data.strMealThumb})`;
       rmTitle.innerText = data.strMeal.split(" ").slice(0, 2).join(" ");
     })
