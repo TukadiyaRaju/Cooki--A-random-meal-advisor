@@ -342,6 +342,16 @@ footer {
   border-radius: 10px;
 
   box-shadow: 0px 0px 10px 100vh rgba(0, 0, 0, 0.336);
+
+  animation: 1s;
+  height: 0;
+  width: 0;
+}
+
+#ingredients.ingActive {
+  display: block;
+  height: auto;
+  width: auto;
 }
 
 #ingredients * {
@@ -380,9 +390,6 @@ footer {
   background: #fb6e5a;
 }
 
-#ingredients.ingActive {
-  display: block;
-}
 @media screen and (max-width: 1024px) {
   #navBar {
     padding: 23px 32px;

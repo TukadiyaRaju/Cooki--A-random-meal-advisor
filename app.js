@@ -18,6 +18,22 @@ let srItemCard;
 
 let data;
 
+function showIngredients(data) {
+  ingredients.classList.add("ingActive");
+  ingImg.style.backgroundImage = `url(${data.strMealThumb})`;
+  ingTitle.innerHTML = data.strMeal.split(" ").slice(0, 2).join(" ");
+  ingList.innerHTML = "";
+  let i = 1;
+  while (
+    data["strIngredient" + i] != "" &&
+    data["strIngredient" + i] != null &&
+    i <= 20
+  ) {
+    ingList.innerHTML += `<p>${data["strIngredient" + i]}</p>`;
+    i++;
+  }
+}
+
 window.onload = () => {
   axios
     .get("https://www.themealdb.com/api/json/v1/1/list.php?c=list")
@@ -44,22 +60,6 @@ window.onload = () => {
     .catch((err) => console.log("Error occured in random item: " + err));
   console.clear();
 };
-
-function showIngredients(data) {
-  ingredients.classList.add("ingActive");
-  ingImg.style.backgroundImage = `url(${data.strMealThumb})`;
-  ingTitle.innerHTML = data.strMeal;
-  ingList.innerHTML = "";
-  let i = 1;
-  while (
-    data["strIngredient" + i] != "" &&
-    data["strIngredient" + i] != null &&
-    i <= 20
-  ) {
-    ingList.innerHTML += `<p>${data["strIngredient" + i]}</p>`;
-    i++;
-  }
-}
 
 rmCard.onclick = () => {
   showIngredients(data);
