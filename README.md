@@ -1,1 +1,1 @@
-# Cooki--A-random-meal-advisor
+# Cooki: A random meal advisor
